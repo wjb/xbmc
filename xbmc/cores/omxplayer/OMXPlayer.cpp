@@ -2130,6 +2130,12 @@ void COMXPlayer::HandleMessages()
             if(!m_pSubtitleDemuxer->SeekTime(time, msg.GetBackward()))
               CLog::Log(LOGDEBUG, "failed to seek subtitle demuxer: %d, success", time);
           }
+          // dts after successful seek
+          if (m_StateInput.time_src  == ETIMESOURCE_CLOCK && start == DVD_NOPTS_VALUE)
+            m_StateInput.dts = DVD_MSEC_TO_TIME(time);
+          else
+            m_StateInput.dts = start;
+
           FlushBuffers(!msg.GetFlush(), start, msg.GetAccurate());
         }
         else
