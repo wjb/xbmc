@@ -853,6 +853,7 @@ bool CCurlFile::Open(const CURL& url)
 {
 
   m_opened = true;
+  m_seekable = true;
 
   CURL url2(url);
   ParseAndCorrectUrl(url2);
