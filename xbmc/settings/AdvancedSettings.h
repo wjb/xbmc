@@ -360,6 +360,7 @@ class CAdvancedSettings
 
     unsigned int m_cacheMemBufferSize;
     float m_readBufferFactor;
+    bool m_alwaysForceBuffer;
 
     bool m_jsonOutputCompact;
     unsigned int m_jsonTcpPort;
