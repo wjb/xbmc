@@ -5958,4 +5958,16 @@ void CApplication::CloseNetworkShares()
 #if defined(HAS_FILESYSTEM_SMB) && !defined(_WIN32)
   smb.Deinit();
 #endif
+
+#ifdef HAS_FILESYSTEM_NFS
+  gNfsConnection.Deinit();
+#endif
+
+#ifdef HAS_FILESYSTEM_AFP
+  gAfpConnection.Deinit();
+#endif
+
+#ifdef HAS_FILESYSTEM_SFTP
+  CSFTPSessionManager::DisconnectAllSessions();
+#endif
 }
