@@ -77,7 +77,7 @@ static void flush_packet_queue(AVFormatContext *s)
 #endif
 
 /* Taken from libavformat/utils.c */
-void av_read_frame_flush(AVFormatContext *s)
+void xbmc_read_frame_flush(AVFormatContext *s)
 {
     AVStream *st;
     int i, j;
