@@ -358,7 +358,7 @@ ConnectionState CPosixConnection::GetState() const
     std::string test_essid(essid, wrq.u.essid.length);
     // Since Android cannot SIOCSIWSCAN (permissions error),
     // m_essid was defaulted to 'Wifi'. So ignore this check.
-    if (m_essid.find(test_essid) == std::string::npos)
+    if (m_essid != test_essid)
       return NETWORK_CONNECTION_STATE_DISCONNECTED;
 #endif
   }
