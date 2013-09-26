@@ -392,3 +392,5 @@ CCacheStrategy *CSimpleDoubleCache::CreateNew()
   return new CSimpleDoubleCache(m_pCache->CreateNew());
 }
 
+}
+
