@@ -14,7 +14,7 @@ Current.Humidity
 Current.FeelsLike
 Current.UVIndex
 Current.DewPoint
-Current.OutlookIcon
+Current.ConditionIcon
 Current.FanartCode
 
 
@@ -31,7 +31,7 @@ Day%i.FanartCode
 WEATHERPROVIDER
 ----------------
 WeatherProvider
-
+WeatherProviderLogo
 
 
 
@@ -52,6 +52,8 @@ Forecast.Updated
 CURRENT
 -------
 Current.IsFetched
+Current.LocalTime
+Current.LocalDate
 Current.WindDegree
 Current.SolarRadiation
 Current.Pressure
