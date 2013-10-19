@@ -47,6 +47,10 @@
 #include "system.h"
 #if defined(HAS_LINUX_EVENTS)
 
+#if defined(HAS_LIBAMCODEC)
+#include "utils/AMLUtils.h"
+#endif
+
 #include <linux/version.h>
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,16)
@@ -791,7 +795,7 @@ void CLinuxInputDevice::SetupKeyboardAutoRepeat(int fd)
 {
   bool enable = true;
 
-#if defined(HAS_AMLPLAYER) || defined(HAS_LIBAMCODEC)
+#if defined(HAS_LIBAMCODEC)
   // ignore the native aml driver named 'key_input',
   //  it is the dedicated power key handler (am_key_input)
   if (strncmp(m_deviceName, "key_input", strlen("key_input")) == 0)

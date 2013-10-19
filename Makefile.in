@@ -155,10 +155,6 @@ DIRECTORY_ARCHIVES += xbmc/android/activity/activity.a
 DIRECTORY_ARCHIVES += xbmc/android/bionic_supplement/bionic_supplement.a
 endif
 
-ifeq (@USE_AMLPLAYER@,1)
-DIRECTORY_ARCHIVES += xbmc/cores/amlplayer/amlplayer.a
-endif
-
 ifeq (@USE_OMXPLAYER@,1)
 DIRECTORY_ARCHIVES += xbmc/cores/omxplayer/omxplayer.a
 endif
