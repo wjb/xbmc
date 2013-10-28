@@ -86,6 +86,9 @@
 #include "LangInfo.h"
 #include "ApplicationMessenger.h"
 
+// check if in rewind mode (trickplay)
+#define RW(speed)  ((speed) < 0)
+
 using namespace std;
 using namespace PVR;
 
@@ -2223,6 +2226,14 @@ void CDVDPlayer::HandleMessages()
         // videoplayer just plays faster after the clock speed has been increased
         // 1. disable audio
         // 2. skip frames and adjust their pts or the clock
+
+        // when switching from trickplay to normal, we may not have a full set of reference frames
+        // in decoder and we may get corrupt frames out. Seeking to current time will avoid this.
+        if ( RW(speed) || RW(m_playSpeed) ||
+           ( (speed == DVD_PLAYSPEED_PAUSE || speed == DVD_PLAYSPEED_NORMAL) &&
+             (m_playSpeed != DVD_PLAYSPEED_PAUSE && m_playSpeed != DVD_PLAYSPEED_NORMAL) ) )
+          m_messenger.Put(new CDVDMsgPlayerSeek(GetTime(), (speed < 0), true, false, false, true));
+
         m_playSpeed = speed;
         m_caching = CACHESTATE_DONE;
         m_clock.SetSpeed(speed);
