@@ -46,6 +46,9 @@ int ff_vaapi_render_picture(struct vaapi_context *vactx, VASurfaceID surface)
     VABufferID va_buffers[3];
     unsigned int n_va_buffers = 0;
 
+    if (!vactx->pic_param_buf_id)
+        return 0;
+
     vaUnmapBuffer(vactx->display, vactx->pic_param_buf_id);
     va_buffers[n_va_buffers++] = vactx->pic_param_buf_id;
 
@@ -212,7 +215,7 @@ int ff_vaapi_mpeg_end_frame(AVCodecContext *avctx)
     ff_mpeg_draw_horiz_band(s, 0, s->avctx->height);
 
 finish:
-    ff_vaapi_common_end_frame(avctx->priv_data);
+    ff_vaapi_common_end_frame(avctx);
     return ret;
 }
 
