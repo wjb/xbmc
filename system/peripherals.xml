@@ -1,4 +1,9 @@
 <peripherals>
+  <peripheral vendor_product="26E3:106C" bus="usb" name="Matricom GMouse" mapTo="hid">
+    <setting key="do_not_use_custom_keymap" type="bool" value="0" label="35009" order="1" />
+    <setting key="keymap" value="gmouse" label="35007" configurable="0" />
+  </peripheral>
+
   <peripheral vendor_product="1915:003B,22B8:003B" bus="usb" name="Motorola Nyxboard Hybrid" mapTo="nyxboard">
     <setting key="do_not_use_custom_keymap" type="bool" value="0" label="35009" order="1" />
     <setting key="keymap" value="nyxboard" label="35007" configurable="0" />
