@@ -3,9 +3,9 @@
     <keyboard>
       <f1>XBMC.ActivateWindow(VideoLibrary)</f1>
       <f2>ContextMenu</f2>
-      <f3>FirstPage</f3>
+      <f3>XBMC.ActivateWindow(Settings)</f3>
       <f4>XBMC.RunScript(script.globalsearch)</f4>
-      <f5>XBMC.ActivateWindow(Settings)</f5>
+      <f5>XBMC.ActivateWindow(Favourites)</f5>
       <f6>XBMC.ActivateWindow(MyMusic)</f6>
       <f7>Rewind</f7>
       <f8>Play</f8>
