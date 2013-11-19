@@ -1821,7 +1821,7 @@ AC_DEFINE(YAJL_MAJOR, 1, [yajl version 1])
 # additional internal players
 case $add_players in
   *amlplayer*)
-      AC_CHECK_HEADER([amlplayer/amports/amstream.h],, AC_MSG_ERROR($missing_headers))
+      AC_CHECK_HEADER([amports/amstream.h],, AC_MSG_ERROR($missing_headers))
       XB_ADD_PLAYER([AMLPLAYER], [amlplayer])
       ;;
   *omxplayer*)
@@ -1832,7 +1832,7 @@ esac
 # additional internal codecs
 case $add_codecs in
   *amcodec*)
-      AC_CHECK_HEADER([amlplayer/codec_error.h],, AC_MSG_ERROR($missing_headers))
+      AC_CHECK_HEADER([codec_error.h],, AC_MSG_ERROR($missing_headers))
       XB_ADD_CODEC([LIBAMCODEC], [amcodec])
       ;;
 esac
