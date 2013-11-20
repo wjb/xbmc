@@ -59,12 +59,8 @@ bool CDVDInputStreamFile::Open(const char* strFile, const std::string& content)
        !URIUtils::IsBluray(strFile) )
     flags |= READ_CACHED; 
 
-
-  if (content == "video/mp4" || content == "video/x-msvideo" || content == "video/avi")
-    flags |= READ_MULTI_STREAM;
-
   // open file in binary mode
-  if (!m_pFile->Open(strFile, READ_TRUNCATED | READ_BITRATE | READ_CHUNKED))
+  if (!m_pFile->Open(strFile, flags))
   {
     delete m_pFile;
     m_pFile = NULL;
