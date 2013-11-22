@@ -386,7 +386,7 @@ bool CAESinkALSA::InitializeHW(AEAudioFormat &format)
   */
   periodSize  = std::min(periodSize, (snd_pcm_uframes_t) sampleRate / 50);
   bufferSize  = std::min(bufferSize, (snd_pcm_uframes_t) sampleRate / 5);
-#if defined(HAS_AMLPLAYER) || defined(HAS_LIBAMCODEC)
+#if defined(HAS_LIBAMCODEC)
   // must be pot for pivos.
   bufferSize  = CheckNP2(bufferSize);
 #endif
@@ -396,7 +396,7 @@ bool CAESinkALSA::InitializeHW(AEAudioFormat &format)
    4x period size to not get underruns (some systems seem to have issues with only 2 periods)
   */
   periodSize = std::min(periodSize, bufferSize / 4);
-#if defined(HAS_AMLPLAYER) || defined(HAS_LIBAMCODEC)
+#if defined(HAS_LIBAMCODEC)
   // must be pot for pivos.
   periodSize = CheckNP2(periodSize);
 #endif
