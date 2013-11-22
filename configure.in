@@ -1301,6 +1301,20 @@ else
   USE_SKIN_TOUCHED=0
 fi
 
+# Amlogic M6
+AC_ARG_ENABLE([m6],
+  [AS_HELP_STRING([--enable-m6],
+  [enable amlogic m6 (default is no)])],
+  [use_m6=$enableval],
+  [use_m6=no])
+
+if test "$use_m6" = "yes"; then
+  HAS_AML_M6=1
+  AC_DEFINE([HAS_AML_M6], [1], [Whether the system has Amlogic M6.])
+else
+  HAS_AML_M6=0
+fi
+
 # libssh
 if test "x$use_ssh" = "xno"; then
   AC_MSG_NOTICE($ssh_disabled)

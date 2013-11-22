@@ -271,7 +271,7 @@ bool CAESinkALSA::InitializeHW(AEAudioFormat &format)
   snd_pcm_hw_params_set_access(m_pcm, hw_params, SND_PCM_ACCESS_RW_INTERLEAVED);
 
   unsigned int sampleRate   = format.m_sampleRate;
-#if defined(HAS_AMLPLAYER) || defined(HAS_LIBAMCODEC)
+#if !defined(HAS_AML_M6) && defined(HAS_LIBAMCODEC)
   // alsa/kernel lies, so map everything to 44100 or 48000
   switch(sampleRate)
   {
