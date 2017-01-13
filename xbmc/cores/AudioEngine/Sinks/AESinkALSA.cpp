@@ -384,7 +384,7 @@ bool CAESinkALSA::InitializeHW(AEAudioFormat &format)
    will cause problems with menu sounds. Buffer will be increased
    after those are fixed.
   */
-  periodSize  = std::min(periodSize, (snd_pcm_uframes_t) sampleRate / 20);
+  periodSize  = std::min(periodSize, (snd_pcm_uframes_t) sampleRate / 40);
   bufferSize  = std::min(bufferSize, (snd_pcm_uframes_t) sampleRate / 5);
 #if defined(HAS_AMLPLAYER) || defined(HAS_LIBAMCODEC)
   // must be pot for pivos.
@@ -395,7 +395,7 @@ bool CAESinkALSA::InitializeHW(AEAudioFormat &format)
    According to upstream we should set buffer size first - so make sure it is always at least
    4x period size to not get underruns (some systems seem to have issues with only 2 periods)
   */
-  periodSize = std::min(periodSize, bufferSize / 4);
+  periodSize = std::min(periodSize, bufferSize / 8);
 #if defined(HAS_AMLPLAYER) || defined(HAS_LIBAMCODEC)
   // must be pot for pivos.
   periodSize = CheckNP2(periodSize);
